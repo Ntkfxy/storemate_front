@@ -1,8 +1,13 @@
 // UserAvatar.tsx
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
+import type { FC } from "react";
 
-const UserAvatar: React.FC<Props> = ({ onClick }) => {
+type Props = {
+  onClick?: () => void;
+};
+
+const UserAvatar: FC<Props> = ({ onClick }) => {
   // 1. ดึงจาก Redux
   const nameFromRedux = useSelector((state: RootState) => state.auth.name);
   
