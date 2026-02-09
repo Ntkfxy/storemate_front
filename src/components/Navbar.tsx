@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import UserAvatar from "./UserAvatar";
+import logo from "../assets/logo.png";
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
@@ -17,7 +18,9 @@ const Navbar: React.FC = () => {
     <div className="navbar bg-base-100 shadow-sm h-[101px] w-full bg-gray-100">
       {/* LEFT */}
       <div className="navbar-start">
-        <img src="/src/assets/logo.png" className="w-40 mt-7" />
+        <button onClick={() => navigate("/")} className="btn btn-ghost p-0">
+          <img src={logo} alt="storemate logo" className="w-40 mt-4" loading="eager" />
+        </button>
       </div>
 
       {/* CENTER */}
@@ -31,15 +34,23 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* RIGHT */}
-      <div className="navbar-end flex gap-8 text-black px-15 ">
-        <FiSearch size={24} />
-        <FaCartShopping size={24} />
-        <BiSolidBell size={24} />
+      <div className="navbar-end flex gap-4 text-black px-4 items-center">
+        <button aria-label="Search" className="p-2 rounded hover:bg-gray-200">
+          <FiSearch size={24} />
+        </button>
+
+        <button aria-label="Cart" className="p-2 rounded hover:bg-gray-200">
+          <FaCartShopping size={24} />
+        </button>
+
+        <button aria-label="Notifications" className="p-2 rounded hover:bg-gray-200">
+          <BiSolidBell size={24} />
+        </button>
 
         {isAuthenticated ? (
           <UserAvatar />
         ) : (
-          <button onClick={() => navigate("/login")}>
+          <button onClick={() => navigate("/login")} aria-label="Login">
             <FaRegUser size={24} className="cursor-pointer" />
           </button>
         )}
