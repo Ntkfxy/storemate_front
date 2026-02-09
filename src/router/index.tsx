@@ -32,9 +32,6 @@ const router = createBrowserRouter([
     }
    
 
-],
-{
-    basename: "/storemate_front"
-  })
+])
 
 export default router;
