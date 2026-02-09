@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+#root {
+  background-color: #ffffff;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+@media (max-width:575.98px) {
+  
+}
